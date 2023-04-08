@@ -5,14 +5,14 @@ public class Customer {
 	private String lastname;
 	private String email;
 	private String phone_no;
-	private String billing_addresss;
+	private String billing_address;
 	public Customer(String firstname, String lastname, String email, String phone_no, String billing_addresss) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.phone_no = phone_no;
-		this.billing_addresss = billing_addresss;
+		this.billing_address = billing_address;
 	}
 	public Customer() {
 		super();
@@ -42,11 +42,11 @@ public class Customer {
 	public void setPhone_no(String phone_no) {
 		this.phone_no = phone_no;
 	}
-	public String getBilling_addresss() {
-		return billing_addresss;
+	public String getBilling_address() {
+		return billing_address;
 	}
-	public void setBilling_addresss(String billing_addresss) {
-		this.billing_addresss = billing_addresss;
+	public void setBilling_address(String billing_address) {
+		this.billing_address = billing_address;
 	}
 	
 }
