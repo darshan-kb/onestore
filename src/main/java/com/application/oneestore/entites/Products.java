@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -22,11 +24,13 @@ public class Products {
 	private String color;
 	private String product_dim;
 	
-	@OneToMany(mappedBy = "products")
-	private List<Categories> cat_ID;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Categories category;
 	
-	@OneToMany(mappedBy = "products")
-	private List<Discount> discount_ID;
+	@ManyToOne
+	@JoinColumn(name="discount_id")
+	private Discount discount;
 
 	public long getProduct_ID() {
 		return product_ID;
@@ -100,25 +104,24 @@ public class Products {
 		this.product_dim = product_dim;
 	}
 
-	public List<Categories> getCat_ID() {
-		return cat_ID;
+	public Categories getCategory() {
+		return category;
 	}
 
-	public void setCat_ID(List<Categories> cat_ID) {
-		this.cat_ID = cat_ID;
+	public void setCategory(Categories category) {
+		this.category = category;
 	}
 
-	public List<Discount> getDiscount_ID() {
-		return discount_ID;
+	public Discount getDiscount() {
+		return discount;
 	}
 
-	public void setDiscount_ID(List<Discount> discount_ID) {
-		this.discount_ID = discount_ID;
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
 	}
 
 	public Products(long product_ID, String product_name, String product_description, double price, double quantity,
-			String imageURL, String brand, String color, String product_dim, List<Categories> cat_ID,
-			List<Discount> discount_ID) {
+			String imageURL, String brand, String color, String product_dim, Categories category, Discount discount) {
 		super();
 		this.product_ID = product_ID;
 		this.product_name = product_name;
@@ -129,8 +132,8 @@ public class Products {
 		this.brand = brand;
 		this.color = color;
 		this.product_dim = product_dim;
-		this.cat_ID = cat_ID;
-		this.discount_ID = discount_ID;
+		this.category = category;
+		this.discount = discount;
 	}
 
 	public Products() {
@@ -142,8 +145,7 @@ public class Products {
 	public String toString() {
 		return "Products [product_ID=" + product_ID + ", product_name=" + product_name + ", product_description="
 				+ product_description + ", price=" + price + ", quantity=" + quantity + ", imageURL=" + imageURL
-				+ ", brand=" + brand + ", color=" + color + ", product_dim=" + product_dim + ", cat_ID=" + cat_ID
-				+ ", discount_ID=" + discount_ID + "]";
+				+ ", brand=" + brand + ", color=" + color + ", product_dim=" + product_dim + "]";
 	}
 	
 	
