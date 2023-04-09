@@ -19,7 +19,7 @@ public class Orders {
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_ID")
-	private Customer customer;
+	private Customers customer;
 	
 	private Date order_date;
 	private double total_price;

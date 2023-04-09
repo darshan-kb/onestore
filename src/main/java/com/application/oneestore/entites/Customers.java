@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Customer {
+public class Customers {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +27,7 @@ public class Customer {
 	private List<ShippingDetails> shippingdetails;
 	
 	
-	public Customer(long customer_ID, String first_name, String last_name, String email, String phone_no,
+	public Customers(long customer_ID, String first_name, String last_name, String email, String phone_no,
 			String biling_address) {
 		super();
 		this.customer_ID = customer_ID;
@@ -37,7 +37,7 @@ public class Customer {
 		this.phone_no = phone_no;
 		this.biling_address = biling_address;
 	}
-	public Customer() {
+	public Customers() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

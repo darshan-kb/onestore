@@ -18,7 +18,7 @@ public class ShippingDetails {
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_ID")
-	private Customer customer;
+	private Customers customer;
 	private String last_name;
 	private String first_name;
 	private String phone_no;
@@ -33,7 +33,7 @@ public class ShippingDetails {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ShippingDetails(long shipping_ID, Customer customer, String last_name, String first_name, String phone_no,
+	public ShippingDetails(long shipping_ID, Customers customer, String last_name, String first_name, String phone_no,
 			String shipping_address, String city, String state, String country, List<Orders> orders) {
 		super();
 		this.shipping_ID = shipping_ID;
@@ -53,10 +53,10 @@ public class ShippingDetails {
 	public void setShipping_ID(long shipping_ID) {
 		this.shipping_ID = shipping_ID;
 	}
-	public Customer getCustomer() {
+	public Customers getCustomer() {
 		return customer;
 	}
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Customers customer) {
 		this.customer = customer;
 	}
 	public String getLast_name() {
