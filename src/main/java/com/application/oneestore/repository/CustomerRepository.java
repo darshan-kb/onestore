@@ -2,8 +2,9 @@ package com.application.oneestore.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.application.oneestore.model.Customer;
+import com.application.oneestore.entites.Customers;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long>{
+
+public interface CustomerRepository extends JpaRepository<Customers, Long>{
 	//custom query method
 }
