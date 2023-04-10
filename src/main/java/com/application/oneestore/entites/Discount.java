@@ -22,7 +22,7 @@ public class Discount {
 	private String discount_code;
 	private double discount_amt;
 	private Date start_date;
-	private Date end_Date;
+	private Date end_date;
 	private double min_purchase_amt;
 	
 	
@@ -41,7 +41,7 @@ public class Discount {
 		this.discount_code = discount_code;
 		this.discount_amt = discount_amt;
 		this.start_date = start_date;
-		this.end_Date = end_Date;
+		this.end_date = end_Date;
 		this.min_purchase_amt = min_purchase_amt;
 		this.discount_type = discount_type;
 		this.products = products;
@@ -87,12 +87,12 @@ public class Discount {
 		this.start_date = start_date;
 	}
 
-	public Date getEnd_Date() {
-		return end_Date;
+	public Date getEnd_date() {
+		return end_date;
 	}
 
-	public void setEnd_Date(Date end_Date) {
-		this.end_Date = end_Date;
+	public void setEnd_date(Date end_Date) {
+		this.end_date = end_Date;
 	}
 
 	public double getMin_purchase_amt() {
@@ -122,7 +122,7 @@ public class Discount {
 	@Override
 	public String toString() {
 		return "Discount [discount_ID=" + discount_ID + ", discount_code=" + discount_code + ", discount_amt="
-				+ discount_amt + ", start_date=" + start_date + ", end_Date=" + end_Date + ", min_purchase_amt="
+				+ discount_amt + ", start_date=" + start_date + ", end_Date=" + end_date + ", min_purchase_amt="
 				+ min_purchase_amt + ", discount_type=" + discount_type + "]";
 	}
 	
