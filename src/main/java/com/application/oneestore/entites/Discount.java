@@ -3,6 +3,7 @@ package com.application.oneestore.entites;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,7 +28,7 @@ public class Discount {
 	
 	
 	
-	@OneToMany(mappedBy = "product_ID")
+	@OneToMany(mappedBy = "product_ID", cascade=CascadeType.ALL)
 	private List<Products> products;
 	
 	@Column(columnDefinition = "VARCHAR(10) DEFAULT 'NULL'")
