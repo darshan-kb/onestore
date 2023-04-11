@@ -2,6 +2,8 @@ package com.application.oneestore.entites;
 
 import java.util.List;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +22,7 @@ public class Categories {
 	
 	
 	
-	@OneToMany(mappedBy = "product_ID")
+	@OneToMany(mappedBy = "product_ID",cascade=CascadeType.ALL)
 	private List<Products> products;
 	
 	public long getCategory_ID() {

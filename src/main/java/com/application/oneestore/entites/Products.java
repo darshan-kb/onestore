@@ -2,6 +2,7 @@ package com.application.oneestore.entites;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,11 +25,12 @@ public class Products {
 	private String color;
 	private String product_dim;
 	
-	@ManyToOne
+	//Knowledge uptil now MERGE attaches the Category to db and performs the action as only Products has the access to products in db.
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "category_id")
 	private Categories category;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="discount_id")
 	private Discount discount;
 
@@ -145,8 +147,11 @@ public class Products {
 	public String toString() {
 		return "Products [product_ID=" + product_ID + ", product_name=" + product_name + ", product_description="
 				+ product_description + ", price=" + price + ", quantity=" + quantity + ", imageURL=" + imageURL
-				+ ", brand=" + brand + ", color=" + color + ", product_dim=" + product_dim + "]";
+				+ ", brand=" + brand + ", color=" + color + ", product_dim=" + product_dim + ", category=" + category
+				+ ", discount=" + discount + "]";
 	}
+
+	
 	
 	
 }
