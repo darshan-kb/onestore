@@ -14,10 +14,10 @@ public class CustomerServiceImpl implements CustomerService{
 	CustomerRepository customerrepo;
 	
 	@Override
-	public String createCustomer(Customers customer) {
+	public Customers createCustomer(Customers customer) {
 		// TODO Auto-generated method stub
 		//return "good";
-		return customerrepo.save(customer).toString();
+		return customerrepo.save(customer);
 		//return null;
 	}
 
