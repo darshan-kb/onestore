@@ -3,6 +3,7 @@ package com.application.oneestore.entites;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,14 +26,14 @@ public class Orders {
 	private double total_price;
 	private OrderStatus orderstatus;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "discount_ID")
 	private Discount discount;
 	
-	@OneToMany(mappedBy = "orderitems_ID")
+	@OneToMany(mappedBy = "orderitems_ID", cascade = CascadeType.ALL)
 	private List<OrderItems> orderitems;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "shipping_ID")
 	private ShippingDetails shippingdetails;
 }

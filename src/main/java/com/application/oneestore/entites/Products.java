@@ -33,6 +33,18 @@ public class Products {
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="discount_id")
 	private Discount discount;
+	
+	@OneToMany(mappedBy = "orderitems_ID", cascade = CascadeType.ALL)
+	private List<OrderItems> orderitems;
+
+	
+	public List<OrderItems> getOrderitems() {
+		return orderitems;
+	}
+
+	public void setOrderitems(List<OrderItems> orderitems) {
+		this.orderitems = orderitems;
+	}
 
 	public long getProduct_ID() {
 		return product_ID;
@@ -122,8 +134,11 @@ public class Products {
 		this.discount = discount;
 	}
 
+	
+
 	public Products(long product_ID, String product_name, String product_description, double price, double quantity,
-			String imageURL, String brand, String color, String product_dim, Categories category, Discount discount) {
+			String imageURL, String brand, String color, String product_dim, Categories category, Discount discount,
+			List<OrderItems> orderitems) {
 		super();
 		this.product_ID = product_ID;
 		this.product_name = product_name;
@@ -136,6 +151,7 @@ public class Products {
 		this.product_dim = product_dim;
 		this.category = category;
 		this.discount = discount;
+		this.orderitems = orderitems;
 	}
 
 	public Products() {
@@ -148,10 +164,7 @@ public class Products {
 		return "Products [product_ID=" + product_ID + ", product_name=" + product_name + ", product_description="
 				+ product_description + ", price=" + price + ", quantity=" + quantity + ", imageURL=" + imageURL
 				+ ", brand=" + brand + ", color=" + color + ", product_dim=" + product_dim + ", category=" + category
-				+ ", discount=" + discount + "]";
+				+ ", discount=" + discount + ", orderitems=" + orderitems + "]";
 	}
 
-	
-	
-	
 }

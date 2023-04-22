@@ -2,6 +2,7 @@ package com.application.oneestore.entites;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,10 +16,7 @@ public class ShippingDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long shipping_ID;
-	
-	@ManyToOne
-	@JoinColumn(name = "customer_ID")
-	private Customers customer;
+
 	private String last_name;
 	private String first_name;
 	private String phone_no;
@@ -27,8 +25,14 @@ public class ShippingDetails {
 	private String state;
 	private String country;
 	
-	@OneToMany(mappedBy = "order_ID")
+	//use customer_id while sending the data
+	@ManyToOne(cascade=CascadeType.MERGE)
+	@JoinColumn(name = "customer_id")
+	private Customers customer;
+	
+	@OneToMany(mappedBy = "order_ID", cascade=CascadeType.ALL)
 	private List<Orders> orders;
+	
 	public ShippingDetails() {
 		super();
 		// TODO Auto-generated constructor stub

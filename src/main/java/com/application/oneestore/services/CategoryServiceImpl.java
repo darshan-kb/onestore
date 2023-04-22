@@ -1,5 +1,7 @@
 package com.application.oneestore.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,12 @@ public class CategoryServiceImpl implements CategoryService{
 	public Categories addNewCategory(Categories category) {
 		// TODO Auto-generated method stub
 		return catrepo.save(category);
+	}
+
+	@Override
+	public List<Categories> getAllCategory() {
+		// TODO Auto-generated method stub
+		return catrepo.findAll();
 	}
 	
 }
