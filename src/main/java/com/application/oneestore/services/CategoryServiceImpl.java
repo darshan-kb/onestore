@@ -20,9 +20,11 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public List<Categories> getAllCategory() {
+	public List<Object> getAllCategory() {
 		// TODO Auto-generated method stub
-		return catrepo.findAll();
+		List<Object> all = catrepo.findProductsWithCategory();
+		
+		return all;
 	}
 	
 }
